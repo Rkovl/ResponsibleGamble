@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector } from 'react-redux'
 
-import {gambleActions} from '../slice/GambleSlice'
+import {gambleActions} from './slice/GambleSlice'
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -15,7 +15,7 @@ const SingleSport = () => {
 
   return (
     <div>
-    <Card className="text-center bg1 t1 mt-2">
+    <Card className="text-center bg1 t2 mt-2">
       <Card.Header>{sports.sport_title}</Card.Header>
       {sports.bookmakers.map(bookmaker=>{
         return <Card.Body>
@@ -25,7 +25,7 @@ const SingleSport = () => {
             return <div className='border-bottom p-3'> {market.key}
             <Row>
                 {market.outcomes.map(outcome=>{
-                    return <Col className='bg2 ms-3 me-3 mt-2'>{outcome.name} <div>{outcome.price}</div></Col>
+                    return <Col className='bg2 ms-3 me-3 mt-2 t1' >{outcome.name}  {outcome.point} <div>{outcome.price}</div></Col>
                 })}
             </Row>
             </div>
@@ -36,7 +36,7 @@ const SingleSport = () => {
       })}
 
       
-      <Card.Footer className="text-muted">2 days ago</Card.Footer>
+      {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
     </Card>
     </div>
   )

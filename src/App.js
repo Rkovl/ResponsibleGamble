@@ -1,13 +1,13 @@
 import React,{useEffect, useState} from 'react'
 import {useDispatch, useSelector } from 'react-redux'
 
-import {gambleActions} from './slice/GambleSlice'
+import {gambleActions} from './conponents/slice/GambleSlice'
 
 import ActiveGames from './data/placeholdActiveSports'
 import CurrentGames from './data/placeholdApp'
-import SingleSport from './conponents/SingleSport'
 
-import Cards from './conponents/CurrentCards'
+
+import Cards from './conponents/FeaturedCards'
 
 const App = () => {
 
@@ -32,6 +32,8 @@ const App = () => {
 
 
   useEffect(() => {
+
+    console.log('useEffect')
 
     dispatch(gambleActions.addActive(ActiveGames))
     dispatch(gambleActions.addCurrent(CurrentGames))

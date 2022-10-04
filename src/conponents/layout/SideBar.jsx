@@ -1,12 +1,22 @@
 import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import { useNavigate } from "react-router-dom";
 
-import { useSelector} from 'react-redux'
+import {gambleActions} from '../slice/GambleSlice'
 
 const SideBar = () => {
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
   const sports = useSelector((state)=> state.main.activeGames)
 
-  console.log(sports, 'sports');
+  const handleClick = (key) =>{
+
+    dispatch(gambleActions.displayMany(key))
+    navigate(`/sports`)
+
+  }
 
   return (
     <div>
@@ -25,7 +35,7 @@ const SideBar = () => {
         
       })} */}
       {sports.map(sport=>{
-        return <div className='sidebarborder'>{sport.title}</div>
+        return <div onClick={()=>handleClick(sport.key)} className='sidebarborder'>{sport.title}</div>
       })}
     </div>
   )

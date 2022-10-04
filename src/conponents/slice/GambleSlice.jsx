@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import Countries from '../data/countries'
+
 
 const gambleSlice = createSlice({ 
     name: 'main',
@@ -8,7 +8,6 @@ const gambleSlice = createSlice({
         sidebarSpots: [],
         currentGames: [],
         activeGames: [],
-        countries: Countries,
         singleDisplay: [],
         manyDisplay: []
     },
@@ -41,6 +40,10 @@ const gambleSlice = createSlice({
         },
         displaySingle: (state,action)=>{
             state.singleDisplay = action.payload
+
+        },
+        displayMany: (state,action)=>{
+            state.manyDisplay = action.payload
 
         }
     }

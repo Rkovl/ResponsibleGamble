@@ -2,30 +2,32 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 
-import {gambleActions} from '../slice/GambleSlice'
+import {gambleActions} from './slice/GambleSlice'
 
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-const CurrentCards = () => {
+import Data from '../data/placeholdSideData'
 
-    const sports = useSelector((state)=> state.main.currentGames)
+const ManySports = () => {
+
+    const sports = Data
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const handleClick = (id) =>{
 
-      dispatch(gambleActions.displaySingle(id))
-      navigate(`/sport`)
-    }
+        dispatch(gambleActions.displaySingle(id))
+        navigate(`/sport`)
+      }
 
   return (
     <Row className='justify-content-center'>
     {sports.map(sport=>{
-      return <Col className='m-4 text-center'><Card style={{ width: '20rem' }} className='bg1 t1' onClick={()=>handleClick(sport)}>
+      return <Col className='m-4 text-center'><Card style={{ width: '20rem' }} className='bg1 t2' onClick={()=>handleClick(sport)}>
               <Card.Header> <strong>{sport.bookmakers[0].key.toUpperCase()}  </strong></Card.Header>
-                <Card.Body>
+                <Card.Body className='t1'>
                   <Card.Title>{sport.sport_title}</Card.Title>
                   <Card.Text>
                     <Row>
@@ -49,4 +51,4 @@ const CurrentCards = () => {
   )
 }
 
-export default CurrentCards
+export default ManySports
