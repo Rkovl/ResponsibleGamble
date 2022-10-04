@@ -25,6 +25,10 @@ code {
   background-color: #40734D;
   
 }
+
+.bg2{
+  background-color: #1F8C2F;
+}
 .nav-link{
   color: #F0F1F2;
   
@@ -33,3 +37,27 @@ code {
   color: #F2A649;
   
 }
+.main{
+  background-color: #F0F1F2;
+  /* height: 100vh; */
+}
+.sidebar{
+  border-right: 5px solid #1F8C2F;
+}
+.sidebarborder{
+  border-bottom: 2px solid #1F8C2F;
+  padding: 1px;
+  color: #F0F1F2;
+}
+
+.sidebarborder:hover{
+  color: #F2A649;
+}
+
+.t1{
+  color: #F0F1F2;
+}
+.t1:hover{
+  color: #F2A649;
+}
+

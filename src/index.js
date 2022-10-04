@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import App from './App';
+import Sport from './conponents/SingleSport'
 import BasicLayout from './conponents/layout/BasicLayout';
 
 
@@ -15,13 +16,16 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
 
-      <BasicLayout>
+      
         <Router>
+        <BasicLayout>
           <Routes>
           <Route path="/" element={<App />}/>
+          <Route path="/sport" element={<Sport />}/>
           </Routes>
+        </BasicLayout>
         </Router>
-      </BasicLayout>
+      
 
     </React.StrictMode>
   </Provider>

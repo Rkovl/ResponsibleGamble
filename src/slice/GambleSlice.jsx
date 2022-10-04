@@ -1,18 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit'
+import Countries from '../data/countries'
 
-const cartSlice = createSlice({ 
-    name: 'cart',
+const gambleSlice = createSlice({ 
+    name: 'main',
     initialState: {
-        cart: []
+        headerSports: [],
+        sidebarSpots: [],
+        currentGames: [],
+        activeGames: [],
+        countries: Countries,
+        singleDisplay: [],
+        manyDisplay: []
     },
     reducers: {
-        addToCart: (state,action)=>{
-            state.cart.push(action.payload)
-            console.log(state.cart, "cart")
+        addActive: (state,action)=>{
+            state.activeGames = action.payload
+
+            let cacheHeader = []
+            let cacheSide = []
+            action.payload.map(active=>{
+                let sport = active.group
+                if(!cacheHeader.includes(sport)){
+                    cacheHeader.push(sport)
+                    cacheSide[sport] = ([active.description])
+                }
+                else{
+                    cacheSide[sport].push(active.description)
+                }
+                return null
+                
+            })
+            state.headerSports = cacheHeader
+            console.log(cacheSide, 'cache')
+            state.sidebarSpots = cacheSide
+            // console.log(state.sidebarSpots);
+            
+        },
+        addCurrent: (state,action)=>{
+            state.currentGames = action.payload
+        },
+        displaySingle: (state,action)=>{
+            state.singleDisplay = action.payload
+
         }
     }
  })
 console.log("first")
- export const cartActions = cartSlice.actions
+ export const gambleActions = gambleSlice.actions
 
- export default cartSlice.reducer
+ export default gambleSlice.reducer

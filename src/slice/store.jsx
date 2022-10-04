@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import GambleSlice from './GambleSlice'
+import RestrictSlice from './RestrictSlice'
 
 
 export default configureStore({
   reducer: {
-    main: null,
-    restrict: null
+    main: GambleSlice,
+    restrict: RestrictSlice
   },
 })
