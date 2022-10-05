@@ -24,7 +24,7 @@ const FeaturedCards = () => {
   return (
     <Row className='justify-content-center'>
     {sports.map(sport=>{
-      return <Col className='m-4 text-center'><Card style={{ width: '20rem' }} className='bg1 t2' onClick={()=>handleClick(sport)}>
+      return <Col className='m-4 text-center'><Card style={{ width: '21rem' }} className='bg1 t2' onClick={()=>handleClick(sport)}>
               <Card.Header> <strong>{sport.bookmakers[0].key.toUpperCase()}  </strong></Card.Header>
                 <Card.Body className='t1'>
                   <Card.Title>{sport.sport_title}</Card.Title>
