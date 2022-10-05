@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 const FeaturedCards = () => {
 
     const sports = useSelector((state)=> state.main.currentGames)
+    const decimal = useSelector((state)=> state.main.decimal)
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
@@ -31,14 +32,14 @@ const FeaturedCards = () => {
                     <Row>
                       <Col>
                       {sport.home_team}
-                      <div>{sport.bookmakers[0].markets[0].outcomes[0].price}</div>
+                      <div>{decimal ? (sport.bookmakers[0].markets[0].outcomes[0].price > 0 ? (sport.bookmakers[0].markets[0].outcomes[0].price/100 +1).toFixed(2):(1-(100/-sport.bookmakers[0].markets[0].outcomes[0].price)).toFixed(2)) : sport.bookmakers[0].markets[0].outcomes[0].price}</div>
                       </Col>
                       <Col>
                         Head to Head
                       </Col>
                       <Col>
                       {sport.away_team}
-                      <div>{sport.bookmakers[0].markets[0].outcomes[1].price}</div>
+                      <div>{decimal ? (sport.bookmakers[0].markets[0].outcomes[1].price > 0 ? (sport.bookmakers[0].markets[0].outcomes[1].price/100 +1).toFixed(2):(1-(100/-sport.bookmakers[0].markets[0].outcomes[1].price)).toFixed(2)) : sport.bookmakers[0].markets[0].outcomes[1].price}</div>
                       </Col>
                     </Row>
                   </Card.Text>

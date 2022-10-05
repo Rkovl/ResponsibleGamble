@@ -1,5 +1,8 @@
 import React from 'react'
 import { useNavigate, Link } from "react-router-dom";
+import {useDispatch, useSelector } from 'react-redux'
+
+import {gambleActions} from '../slice/GambleSlice'
 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -10,11 +13,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Header = () => {
 
-  // const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   return (
     <div>
-    <Navbar collapseOnSelect expand="lg" className='bg1 ps-5 pe-5' variant='dark'>
+    <Navbar collapseOnSelect expand="lg" className='bg1 ps-5 pe-5 ' variant='dark'>
       <Container fluid>
         <Link to='/'>
         <Navbar.Brand>
@@ -34,21 +37,14 @@ const Header = () => {
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Account</Nav.Link>
-            <Nav.Link href="#deets">Responsible Settings</Nav.Link>
-            <NavDropdown title="American" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+            {/* <Nav.Link href="#deets">Account</Nav.Link>
+            <Nav.Link href="#deets">Responsible Settings</Nav.Link> */}
+            <NavDropdown title="Odds Display" id="collasible-nav-dropdown">
+              <NavDropdown.Item onClick={()=>dispatch(gambleActions.american())}>American</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>dispatch(gambleActions.decimal())}>Decimal</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -56,7 +52,7 @@ const Header = () => {
               aria-label="Search"
             />
             <Button variant="outline-warning">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

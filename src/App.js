@@ -1,5 +1,5 @@
-import React,{useEffect, useState} from 'react'
-import {useDispatch, useSelector } from 'react-redux'
+import React,{useEffect} from 'react'
+import {useDispatch } from 'react-redux'
 
 import {gambleActions} from './conponents/slice/GambleSlice'
 
@@ -13,30 +13,28 @@ const App = () => {
 
   const dispatch = useDispatch()
 
-  const headerActive = useSelector((state)=> state.main.headerActive)
-  const sidebarActive = useSelector((state)=> state.main.sidebarActive)
-  const centerActive = useSelector((state)=> state.main.centerActive)
-
-
-  const headerClick = () =>{
-
-  }
-
-  const sidebarClick = () =>{
-    
-  }
-
-  const centerClick = () =>{
-    
-  }
-
-
   useEffect(() => {
 
     console.log('useEffect')
 
-    dispatch(gambleActions.addActive(ActiveGames))
-    dispatch(gambleActions.addCurrent(CurrentGames))
+    const getActiveData = async () => {
+      let result = await fetch('https://api.the-odds-api.com/v4/sports?apiKey=ebfabb39e58898b7089509435f8c3485')
+      let data = await result.json()
+      dispatch(gambleActions.addActive(data))
+
+    }
+
+    const getCurrentData = async () => {
+      let result = await fetch('https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=h2h&apiKey=ebfabb39e58898b7089509435f8c3485')
+      let data = await result.json()
+      dispatch(gambleActions.addCurrent(data))
+
+    }
+    getCurrentData()
+    getActiveData()
+
+    
+    
     
   }, []);
 

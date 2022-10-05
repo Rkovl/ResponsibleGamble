@@ -15,6 +15,7 @@ const SideBar = () => {
 
     dispatch(gambleActions.displayMany(key))
     navigate(`/sports`)
+    
 
   }
 

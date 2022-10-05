@@ -9,7 +9,8 @@ const gambleSlice = createSlice({
         currentGames: [],
         activeGames: [],
         singleDisplay: [],
-        manyDisplay: []
+        manyDisplay: [],
+        decimal: false
     },
     reducers: {
         addActive: (state,action)=>{
@@ -45,6 +46,15 @@ const gambleSlice = createSlice({
         displayMany: (state,action)=>{
             state.manyDisplay = action.payload
 
+        },
+        headerClick: (state,action)=>{
+
+        },
+        decimal: (state)=>{
+            state.decimal = true
+        },
+        american: (state)=>{
+            state.decimal = false
         }
     }
  })
