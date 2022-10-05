@@ -15,7 +15,7 @@ const BasicLayout = ({children}) => {
         <Container fluid>
           <Row>
             {/* <Col xs={2} className='bg1'></Col> */}
-            <Col xs={3} className='sidebar bg1'><SideBar/></Col>
+            <Col md={3} sm={12} className='sidebar bg1'><SideBar/></Col>
             <Col className='main'>{children} </Col>
             {/* <Col xs={1}  className='main'></Col> */}
           </Row>

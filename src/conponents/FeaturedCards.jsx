@@ -22,15 +22,18 @@ const FeaturedCards = () => {
     }
 
   return (
-    <Row className='justify-content-center'>
+    <Row xs={12} md={12} className="g-4 p-4">
     {sports.map(sport=>{
-      return <Col className='m-4 text-center'><Card style={{ width: '21rem' }} className='bg1 t2' onClick={()=>handleClick(sport)}>
+      return <Col className='m-4 text-center'><Card style={{ minWidth: '21rem' }} className='bg1 t2' onClick={()=>handleClick(sport)}>
               <Card.Header> <strong>{sport.bookmakers[0].key.toUpperCase()}  </strong></Card.Header>
                 <Card.Body className='t1'>
                   <Card.Title>{sport.sport_title}</Card.Title>
                   <Card.Text>
                     <Row>
-                      <Col>
+                      {sport.bookmakers[0].markets[0].outcomes.map(outcome=>{
+                                            return <Col className='bg2 ms-3 me-3 mt-2 t1' >{outcome.name}  {outcome.point} <div>{decimal ? (outcome.price>0 ?(outcome.price/100 + 1).toFixed(2):(1-(100/-outcome.price)).toFixed(2)) : outcome.price}</div></Col>
+                      })}
+                      {/* <Col>
                       {sport.home_team}
                       <div>{decimal ? (sport.bookmakers[0].markets[0].outcomes[0].price > 0 ? (sport.bookmakers[0].markets[0].outcomes[0].price/100 +1).toFixed(2):(1-(100/-sport.bookmakers[0].markets[0].outcomes[0].price)).toFixed(2)) : sport.bookmakers[0].markets[0].outcomes[0].price}</div>
                       </Col>
@@ -40,7 +43,7 @@ const FeaturedCards = () => {
                       <Col>
                       {sport.away_team}
                       <div>{decimal ? (sport.bookmakers[0].markets[0].outcomes[1].price > 0 ? (sport.bookmakers[0].markets[0].outcomes[1].price/100 +1).toFixed(2):(1-(100/-sport.bookmakers[0].markets[0].outcomes[1].price)).toFixed(2)) : sport.bookmakers[0].markets[0].outcomes[1].price}</div>
-                      </Col>
+                      </Col> */}
                     </Row>
                   </Card.Text>
                 </Card.Body>

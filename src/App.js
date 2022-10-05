@@ -25,7 +25,7 @@ const App = () => {
     }
 
     const getCurrentData = async () => {
-      let result = await fetch('https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=h2h&apiKey=ebfabb39e58898b7089509435f8c3485')
+      let result = await fetch('https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=h2h&apiKey=ebfabb39e58898b7089509435f8c3485&oddsFormat=american')
       let data = await result.json()
       dispatch(gambleActions.addCurrent(data))
 

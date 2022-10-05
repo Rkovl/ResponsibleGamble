@@ -43,6 +43,7 @@ code {
 }
 .sidebar{
   border-right: 5px solid #1F8C2F;
+  border-bottom: 2px solid #1F8C2F;
 }
 .sidebarborder{
   border-bottom: 2px solid #1F8C2F;
