@@ -33,7 +33,7 @@ const ManySports = () => {
         let result = await fetch(`https://api.the-odds-api.com/v4/sports/${manyDisplay}/odds?markets=h2h,spreads,totals&apiKey=ebfabb39e58898b7089509435f8c3485&regions=us&markets=h2h,spreads&oddsFormat=american`)
         let data = await result.json()
         setCurrentData(data)
-        console.log(currentData, 'current data')
+        // console.log(currentData, 'current data')
       }
 
       getData()

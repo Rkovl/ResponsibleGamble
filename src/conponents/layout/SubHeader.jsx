@@ -26,7 +26,7 @@ const Header = () => {
 
   const handleClick = (sport) =>{
 
-    const sportData = sports.filter(data=> data.title == sport)
+    const sportData = sports.filter(data=> data.title === sport)
     console.log(sport, 'sport')
     console.log(sportData, sportData.key, 'sportdadta')
     dispatch(gambleActions.displayMany(sportData[0].key))
