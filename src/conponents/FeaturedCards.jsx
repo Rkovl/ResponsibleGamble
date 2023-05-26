@@ -31,7 +31,7 @@ const FeaturedCards = () => {
                   <Card.Text>
                     <Row>
                       {sport.bookmakers[0].markets[0].outcomes.map(outcome=>{
-                                            return <Col className='bg2 ms-3 me-3 mt-2 t1' >{outcome.name}  {outcome.point} <div>{decimal ? (outcome.price>0 ?(outcome.price/100 + 1).toFixed(2):(1-(100/-outcome.price)).toFixed(2)) : outcome.price}</div></Col>
+                        return <Col className='bg2 ms-3 me-3 mt-2 t1' >{outcome.name}  {outcome.point} <div>{decimal ? (outcome.price>0 ?(outcome.price/100 + 1).toFixed(2):(1-(100/-outcome.price)).toFixed(2)) : outcome.price}</div></Col>
                       })}
                       {/* <Col>
                       {sport.home_team}

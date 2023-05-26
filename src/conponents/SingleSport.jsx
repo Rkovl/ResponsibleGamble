@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import {useSelector } from 'react-redux'
 
-import {gambleActions} from './slice/GambleSlice'
+// import {gambleActions} from './slice/GambleSlice'
 
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -12,7 +12,7 @@ const SingleSport = () => {
 
     const decimal = useSelector((state)=> state.main.decimal)
     const sports = useSelector((state)=> state.main.singleDisplay)
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
   return (
     <div>

@@ -1,12 +1,12 @@
 import React from 'react'
-import { useNavigate, Link } from "react-router-dom";
-import {useDispatch, useSelector } from 'react-redux'
+import {  Link } from "react-router-dom";
+import {useDispatch} from 'react-redux'
 
 import {gambleActions} from '../slice/GambleSlice'
 
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';

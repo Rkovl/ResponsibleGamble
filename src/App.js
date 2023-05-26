@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react'
-import {useDispatch } from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 import {gambleActions} from './conponents/slice/GambleSlice'
 
-import ActiveGames from './data/placeholdActiveSports'
-import CurrentGames from './data/placeholdApp'
+// import ActiveGames from './data/placeholdActiveSports'
+// import CurrentGames from './data/placeholdApp'
 
 
 import Cards from './conponents/FeaturedCards'
